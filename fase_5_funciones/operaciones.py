@@ -1,3 +1,7 @@
+from datetime import datetime
+import random
+import math
+
 def sumar(a, b):
     return a + b
 
@@ -45,3 +49,12 @@ def generar_reporte_venta(*precios: float, **meta_datos) -> str:
         
         return f"Se vendio un total de {cantidad_productos} productos, por una suma de {ventatotal}. estos fueron los datos de venta: {meta_datos}"
 
+def generar_ticket(cliente: str, monto_base: float) -> str:
+        fecha = datetime.now()
+        fecha_formato = fecha.strftime("%d/%m/%Y, %H:%M")
+
+        promo_regalo = random.randint(5, 20)
+        descuento_monto = monto_base * (1 - (promo_regalo / 100))
+
+        total_final = math.ceil(descuento_monto)
+        return f"{cliente} | fecha: {fecha_formato} | Descuento: {promo_regalo}% | Total a pagar: {total_final}"
