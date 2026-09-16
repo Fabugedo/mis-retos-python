@@ -23,3 +23,15 @@ def aplicar_descuento(monto_total, porcentaje_descuento=0):
                     monto_final = monto_total * (1 - (porcentaje_descuento / 100))
                     return monto_final
 
+
+def sumar_todos(*numeros: float) -> float:
+        """
+        Suma cualquier cantidad de números que reciba 
+        """
+        return sum(numeros) #sum es nativa de python y suma elementos de una tupla o lista
+
+def procesar_compra(*precios: float, **opciones) -> float:
+        """ Suma todos los precios y muestra las opciones adicionales recibidas."""
+        total = sum(precios)
+        print(f"Opciones de la compra: {opciones}")
+        return total

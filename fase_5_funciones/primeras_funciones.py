@@ -25,3 +25,14 @@ cliente_c_desc = operaciones.aplicar_descuento(cliente_c, 10)
 print(f"Total con cliente A : {cliente_A}")
 print(f"Total con cliente B: {cliente_B}")
 print(f"Total con cliente C: {cliente_c} pero aplicamos un descuento: {cliente_c_desc}")
+
+#########################################################################
+
+print(operaciones.sumar_todos(10,20)) #pasamos 2
+print(operaciones.sumar_todos(5, 5, 5, 5, 5)) #pasamos 5
+print(operaciones.sumar_todos(100))   #pasamos 1
+
+##################################################################################
+
+total = operaciones.procesar_compra(5000, 12000, 3000, cliente="Fabrizio", pago="tarjeta")
+print(f"Total: {total}")
