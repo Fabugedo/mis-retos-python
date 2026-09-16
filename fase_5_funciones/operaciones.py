@@ -5,10 +5,21 @@ def saludar(nombre="invitado"):
     return f"Hola {nombre}, Bienvenido a la fase 5!"
 
 def calcular_precio_total(precio_bbase, cantidad=1, impuesto=0.19):
+                    """ acá estamos calculando el total y calculandole el impuesto
+                    le pasamos precio_bbase por la cantidad y a eso con una operacion matematica le calculmaos el
+                    porcentaje de impuesto (que ya viene con 0.19 por defecto)
+                    y eso nos devuelve el impuesto al total
+                    """
                     precio_total = precio_bbase * cantidad
                     impuesto_altotal = precio_total * (1 + impuesto )
                     return impuesto_altotal
 def aplicar_descuento(monto_total, porcentaje_descuento=0):
-        monto_final = monto_total * (1 - (porcentaje_descuento / 100))
-        return monto_final
+                    """
+                    acá simplemente vemos si le aplicamos descuento al monto total que traemos desde la funcion de arriba
+                    la operacion matematica nos permite aplicar la funcion incluso si nos equivamos y la llamamos si no hay descuento
+                    no cambiará el total
+
+                    """
+                    monto_final = monto_total * (1 - (porcentaje_descuento / 100))
+                    return monto_final
 

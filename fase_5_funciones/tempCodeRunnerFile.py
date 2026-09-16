@@ -1,1 +1,1 @@
-mensaje = operaciones.saludar()
+print(precio_total)
