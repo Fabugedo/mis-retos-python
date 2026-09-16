@@ -35,3 +35,13 @@ def procesar_compra(*precios: float, **opciones) -> float:
         total = sum(precios)
         print(f"Opciones de la compra: {opciones}")
         return total
+
+def generar_reporte_venta(*precios: float, **meta_datos) -> str:
+        """
+        Genera reportes con total de articulos, total de ventas y los metadatos  
+        """
+        cantidad_productos = len(precios) 
+        ventatotal = sum(precios) if precios else 0.0
+        
+        return f"Se vendio un total de {cantidad_productos} productos, por una suma de {ventatotal}. estos fueron los datos de venta: {meta_datos}"
+

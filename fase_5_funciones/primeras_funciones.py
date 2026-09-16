@@ -36,3 +36,11 @@ print(operaciones.sumar_todos(100))   #pasamos 1
 
 total = operaciones.procesar_compra(5000, 12000, 3000, cliente="Fabrizio", pago="tarjeta")
 print(f"Total: {total}")
+
+##############################################################################################
+
+venta_1 = operaciones.generar_reporte_venta(12000, 4500, 8900, cliente="Fabrizio", metodo_pago="Efectivo")
+venta_2 = operaciones.generar_reporte_venta(vendedor="Camila", sucursal="central", descuento_aplicado="True")
+
+print(venta_1)
+print(venta_2)
