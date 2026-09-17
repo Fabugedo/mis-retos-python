@@ -33,3 +33,12 @@ logs_servidor = operaciones.registrar_log(ip="192.168.1.10", tipo_evento="Intent
 
 print(logs_servidor)
 print(logs_db)
+
+menor, mayor = operaciones.calcular_estadisticas_basicas([10, 50, 2, 99, 23])
+
+print(menor, mayor)
+
+informe_1, informe_2, informe_3 = operaciones.analizar_rendimiento(85.0,60.0)
+print(informe_1)
+print(informe_2)
+print(informe_3)

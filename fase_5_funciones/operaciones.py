@@ -93,9 +93,32 @@ def agregar_producto(producto: str, precio: float, carrito: dict = None) ->dict:
                 carrito = {}
         carrito[producto] = precio
         return carrito
+
 def registrar_log(ip: str, tipo_evento: str, historial: list = None) ->list:
+        """
+        El cambio que tenemos acá , es integrar f-strings , para crear log_texto y pasarselos a historial de forma comoda
+        """
         if historial is None:
                 historial = []
         log_texto = f"[{ip}] - {tipo_evento}"
         historial.append(log_texto)
         return historial
+
+###Ejemplo micro-sintactico 
+def calcular_estadisticas_basicas(numeros: list) ->tuple:
+        """Calcula y retorna el valor mínimo y máximo de una lista. 
+        """
+        return min(numeros), max(numeros) #devuelve tupla implicita
+##########################################################
+
+def analizar_rendimiento(uso_cpu: float, uso_ram: float) -> tuple:
+
+        """
+        Prom entre usocpu y ram , detectaremos cualquier uso que supere el 0.8 
+        """
+        alerta = False
+        prom_cpuram = (uso_cpu + uso_ram)/2
+        if uso_cpu >= 80.0 or uso_ram >= 80.0:
+                alerta = True
+        mensaje = f"Este es el promedio entre el cpu y la ram {prom_cpuram}, actualmente este es el estado de alerta: {alerta}"
+        return prom_cpuram, alerta, mensaje
