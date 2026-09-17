@@ -1,1 +1,1 @@
-print(precio_total)
+SALDO_CUENTA = 100000.0

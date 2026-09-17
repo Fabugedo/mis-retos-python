@@ -58,3 +58,19 @@ def generar_ticket(cliente: str, monto_base: float) -> str:
 
         total_final = math.ceil(descuento_monto)
         return f"{cliente} | fecha: {fecha_formato} | Descuento: {promo_regalo}% | Total a pagar: {total_final}"
+
+SALDO_CUENTA = 100000.0
+
+def realizar_transferencia(monto: float, destinatario: str) -> str:
+        """
+        Funcion que ocupa un scope con una variable global (saldo_cuenta) y una local. Restamos a global y condicionamos para el funcionamiento
+        """
+        global SALDO_CUENTA
+        costo_fijo = 300
+        saldo_final = monto + costo_fijo
+        if saldo_final > SALDO_CUENTA:
+                return f"No puede realizarce la acción por saldo insuficiente"
+        else:
+                SALDO_CUENTA -= saldo_final
+                return  f"Operacion realizada con exito, se transfirio ${saldo_final} a {destinatario}. Su nuevo saldo es {SALDO_CUENTA}"
+      
