@@ -72,5 +72,30 @@ def realizar_transferencia(monto: float, destinatario: str) -> str:
                 return f"No puede realizarce la acción por saldo insuficiente"
         else:
                 SALDO_CUENTA -= saldo_final
-                return  f"Operacion realizada con exito, se transfirio ${saldo_final} a {destinatario}. Su nuevo saldo es {SALDO_CUENTA}"
-      
+        return  f"Operacion realizada con exito, se transfirio ${saldo_final} a {destinatario}. Su nuevo saldo es {SALDO_CUENTA}"
+
+def registrar_evento(evento: str, bitacora: list= None) ->list:
+        """ Ocupando list = None en bitacora, Nos permite crear una lista NUEVA e independiente en la RAM cada vez que alguien llama al a funcion
+        sin pasarle una. Lo que prevee la contaminación de la misma lista en la PVM
+        """
+        if bitacora is None:
+                bitacora =  []
+        bitacora.append(evento)
+        return bitacora
+
+def agregar_producto(producto: str, precio: float, carrito: dict = None) ->dict:
+        """
+        Mismo que la funcion anterior ahora ocupando diccionarios , el detalle cambia por ejemplo en que le pasamos ahora al carrito un producto
+        con un precio al final, a diferencia del append. Tambien añadir que debemos declarar solo con el nombre del diccionario el que queremos cambiar
+        ejemplo: carrito= carrito_juan ), no es necesario corxetes ni tanta sintaxis
+        """
+        if carrito is None:
+                carrito = {}
+        carrito[producto] = precio
+        return carrito
+def registrar_log(ip: str, tipo_evento: str, historial: list = None) ->list:
+        if historial is None:
+                historial = []
+        log_texto = f"[{ip}] - {tipo_evento}"
+        historial.append(log_texto)
+        return historial
