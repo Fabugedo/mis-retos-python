@@ -122,3 +122,90 @@ def analizar_rendimiento(uso_cpu: float, uso_ram: float) -> tuple:
                 alerta = True
         mensaje = f"Este es el promedio entre el cpu y la ram {prom_cpuram}, actualmente este es el estado de alerta: {alerta}"
         return prom_cpuram, alerta, mensaje
+
+############ ejemplos  *ARGS  ###################
+##*ARGS es atrapar toodos los valores sueltos en una tupla 
+##**kwargs atrapa todo con nombre y valor  y los empaqueta en diccionario
+
+def sumar_todos(*numeros)-> float:
+        """
+        suma una cantidad indefinida de numeros pasados por parametros
+        """
+        #numeros se converte en una tupla con todo lo que le envies
+        return sum(numeros)
+#se puede llamar con la cantidad de numeros que queramos
+total_1 = sumar_todos(10.0, 20.0) #devuelve 30
+total_2 = sumar_todos(5.0, 15.0, 30.0, 50.0) #devuelve 100
+
+############  **KAWRGS ###############
+def crear_perfil_usuario(**datos)-> dict:
+        """
+        recibbe cualquier cantidad de datos en formato clave= valor.
+        """
+        # ' dato ' se convierte automaticamente en un diccionario 
+        return datos
+
+#la llamas asignando los nombres que quieras al vuelo:
+usuario_1 = crear_perfil_usuario(nombre="Juan", rol="Junior", pais="Chile")
+#devuelve: {'nombre': 'Juan', 'rol': 'Junior', 'pais': 'Chile}
+
+
+####################################fin ejemplos#####################################
+
+
+def calcular_total_comisiones(*comisiones) -> float:
+        """
+        agrupa y suma todas las comisiones en una tupla
+        """
+        return sum(comisiones)
+
+def guardar_configuraciones(**opciones) ->dict:
+        """
+        **kwargs nos permite guardar todos los elementos ordenados en formato diccionario con clave y valor
+        el formato de los datos puede ser int,float,str,booleano
+        """
+        return opciones
+
+def historial_servidor(ip_cliente: str, mensaje_evento: str, historial_msg: list = None) -> list:
+        """
+        concateno las ip y los mensajes en una variable, para enlazar ip por mensaje
+        me aseguro de dejar un condicional , de que si detecta que no viene nada por historial_msg
+        cree la lista nueva
+        De no ser así, continua concatenando con sus ip y mensaje
+        """
+        if historial_msg is None:
+                historial_msg = []
+        mensaje_log = f"{ip_cliente}: {mensaje_evento}"
+        historial_msg.append(mensaje_log)
+        return historial_msg
+
+def mediciones_servidor(*mediciones: float) -> tuple:
+        """
+        recibo mediciones, calculo primero la cantidad de mediciones, para validar que existan, si no, devuelve mensaje 
+        evitamos procesar o gastar recursos de manera temprana
+        luego calculamos el total por la cantidad de mediciones para obtener el promedio
+        ocupamos condicionales
+        ocupamos la variable local estado_Critico en booleano como falso para marcar el estado por defecto
+        ocupamos la condicion de 75% para cambiar el estado critico del boleano y preparar el mensaje
+        finalmente devolvemos el promedio, el estado y un mensaje
+        """
+        estado_critico = False
+        cantidad_mediciones = len(mediciones)
+        if cantidad_mediciones == 0:
+                return 0.0, False, f"no se recibieron mediciones"
+        total_mediciones = sum(mediciones)
+        promedio_mediciones = round(total_mediciones / cantidad_mediciones, 2)
+        if promedio_mediciones >= 75.0:
+                estado_critico = True
+        mensaje = f"Este es el promedio entre las mediciones {promedio_mediciones:.2f}, actualmente este es el estado del servidor: {estado_critico}"
+        return promedio_mediciones, estado_critico, mensaje
+
+def registro_datos_servidor(ip: str,**metadatos) -> dict:
+        """
+        creamos el registro en modo Kwargs, de modo que recibamos claves y valores para crear el expediente del cliente
+        """
+        metadatos["ip_origen"] = ip
+        return metadatos
+
+
+

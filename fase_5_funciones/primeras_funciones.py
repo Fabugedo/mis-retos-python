@@ -44,3 +44,11 @@ venta_2 = operaciones.generar_reporte_venta(vendedor="Camila", sucursal="central
 
 print(venta_1)
 print(venta_2)
+
+##################################################################################################
+venta_total_1 = operaciones.calcular_total_comisiones(1500.0, 300.0, 500.0)
+venta_total_2 = operaciones.calcular_total_comisiones(16000.0, 215.5, 25521.0, 512039.1, 22569.0)
+print(venta_total_1)
+print(venta_total_2)
+
+############################################################################

@@ -42,3 +42,37 @@ informe_1, informe_2, informe_3 = operaciones.analizar_rendimiento(85.0,60.0)
 print(informe_1)
 print(informe_2)
 print(informe_3)
+
+venta_total_1 = operaciones.calcular_total_comisiones(1500.0, 300.0, 500.0)
+venta_total_2 = operaciones.calcular_total_comisiones(16000.0, 215.5, 25521.0, 512039.1, 22569.0)
+print(venta_total_1)
+print(venta_total_2)
+
+qwa_dict1 = operaciones.guardar_configuraciones(Modo_oscuro=True, volumen=80, idioma="es")
+qwa_dict2 = operaciones.guardar_configuraciones(Modo_claro= False, volumen=30, idioma="eng")
+print(qwa_dict1)
+print(qwa_dict2)
+
+
+######### ejercicio ##############
+##1
+logs_usuario1 = operaciones.historial_servidor(ip_cliente="192.168.1.10", mensaje_evento="validando la funcion")
+logs_usuario2 = operaciones.historial_servidor(ip_cliente="192.168.1.12", mensaje_evento="validando la funcion en otra ip")
+print(logs_usuario1)
+print(logs_usuario2)
+print("-----------------")
+
+##2
+mediciones_dia1 = operaciones.mediciones_servidor(24.0,150.2,10.0,15.1,20,1)
+mediciones_dia2 = operaciones.mediciones_servidor(10.2,24.5,30.0)
+mediciones_dia3 = operaciones.mediciones_servidor(0)
+print(mediciones_dia1)
+print(mediciones_dia2)
+print(mediciones_dia3)
+print("------------------")
+##3
+fichero_tecnico1 = operaciones.registro_datos_servidor(Ram="1028", Región="V region", proveedor="VTR")
+fichero_tecnico2 = operaciones.registro_datos_servidor(SO="Windows", Región="Metropolitana")
+print(fichero_tecnico1)
+print(fichero_tecnico2)
+print("--------------------")
