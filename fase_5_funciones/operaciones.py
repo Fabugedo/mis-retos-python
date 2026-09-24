@@ -1,6 +1,7 @@
 from datetime import datetime
 import random
 import math
+import re
 
 def sumar(a, b):
     return a + b
@@ -207,5 +208,32 @@ def registro_datos_servidor(ip: str,**metadatos) -> dict:
         metadatos["ip_origen"] = ip
         return metadatos
 
+def validar_fecha_log(fecha: str) -> bool:
+        patron = r"^\d{4}-\d{2}-\d{2}$"
+# re.match devuelve un objeto Match si coincide, o None si no.
+# Al convertirlo con bool(), nos da True o False.
+        return bool(re.match(patron, fecha))
 
+def validar_codigo_servidor(codigo: str) -> bool:
+        """valida formato
+        """
+        patron = r"^SRV-\d{4}-[A-Z]{2,4}$"
+        return bool(re.match(patron, codigo))
 
+def censurar_tarjetas_log(mensaje: str) -> str:
+        """Recibe una cadena 'mensaje', busca números de tarjeta y devuelve el texto sanitizado
+        """
+        patron = r"\d{4}-\d{4}-\d{4}-\d{4}"
+        return re.sub(patron, "XXXX-XXXX-XXXX-XXXX", mensaje)
+
+def validar_sku_producto(codigo: str) ->bool:
+        patron = r"^SKU-\d{4}-[ABC]$"
+        return bool(re.match(patron, codigo))
+
+def ocultar_ips_log(mensaje: str) -> str:
+        patron = r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
+        return re.sub(patron, "[IP_PROTEGIDA]", mensaje)
+
+def validar_username(username: str)-> bool:
+        validar = r"^[a-z\d]{4,10}$" 
+        return  bool(re.match(validar, username))
