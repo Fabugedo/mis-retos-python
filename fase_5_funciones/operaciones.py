@@ -237,3 +237,35 @@ def ocultar_ips_log(mensaje: str) -> str:
 def validar_username(username: str)-> bool:
         validar = r"^[a-z\d]{4,10}$" 
         return  bool(re.match(validar, username))
+
+def procesar_log_auditoria(log: str)-> str:
+        patron = r"^AUDIT-\d{4}: "
+        if re.match(patron, log):
+                correo = r"[a-z\d]+@[a-z]+\.[a-z]{2,4}"
+                return re.sub(correo, "[CORREO_PROTEGIDO]", log)
+        return f"ERROR: FORMATO DE LOG INVALIDO"
+
+def agregar_tarea_usuario(tarea: str, pendiente: list=None) ->list:
+        if pendiente is None:
+                pendiente = []
+        pendiente.append(tarea)
+
+        return pendiente
+
+descuento_aplicado = 0.0
+
+def aplica_descuento(total, descuento=0.9) ->float:
+        # Paso 1: Creamos y asignamos la variable LOCAL
+        descuento_aplicado = total * (descuento / 100)
+        # Paso 2: ¡AQUÍ LA USAMOS! (VSCode ya no la marcará como "sin uso")
+        precio_final = total - descuento_aplicado
+        # Paso 3: Retornamos el precio final
+        return precio_final
+
+usuario_activo = "Invitado"
+
+def estado_usuario(username: str) -> str:
+        usuario_activo = username
+        mensaje = f"Bienvenido, {usuario_activo.upper()} "
+
+        return mensaje

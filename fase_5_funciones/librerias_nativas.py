@@ -118,3 +118,11 @@ print(operaciones.validar_username("player1"))
 print(operaciones.validar_username("subzero"))
 print(operaciones.validar_username("doc"))
 print(operaciones.validar_username("master_chief"))
+#####
+print(operaciones.agregar_tarea_usuario("Estudiar Python"))
+print(operaciones.agregar_tarea_usuario("Hacer ejercicio"))
+###
+print(operaciones.aplica_descuento(1000.0, 15.0))
+###
+print(operaciones.estado_usuario("carlos"))
+print(operaciones.usuario_activo)
