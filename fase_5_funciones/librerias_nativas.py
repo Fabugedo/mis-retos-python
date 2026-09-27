@@ -126,3 +126,21 @@ print(operaciones.aplica_descuento(1000.0, 15.0))
 ###
 print(operaciones.estado_usuario("carlos"))
 print(operaciones.usuario_activo)
+###
+usuarios = ["ana", "carlos","ibai", "beatriz"]
+mas_corta = min(usuarios, key=lambda  texto: len(texto))
+print(mas_corta)
+
+productos = [("Laptop", 1200.0),("Mouse", 25.0),("Teclado", 85.0)]
+precio_bajo = sorted(productos, key=lambda a : a[1]) 
+print(precio_bajo)
+
+######LAMBDA
+empleados = [ {"nombre": "Laura", "departamento": "Ventas", "salario": 2400.0}, 
+               {"nombre": "Pedro", "departamento": "IT", "salario": 3800.0}, 
+               {"nombre": "Sofia", "departamento": "IT", "salario": 3100.0}, 
+               {"nombre": "Diego", "departamento": "Marketing", "salario": 1900.0}, ]
+mayor_salario = max(empleados, key=lambda a : a["salario"])
+menor_salario = sorted(empleados, key=lambda b : b["salario"],reverse=True)
+print(mayor_salario)
+print(menor_salario)

@@ -269,3 +269,4 @@ def estado_usuario(username: str) -> str:
         mensaje = f"Bienvenido, {usuario_activo.upper()} "
 
         return mensaje
+
