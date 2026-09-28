@@ -1,5 +1,5 @@
 import operaciones
-
+import operaciones_2
 
 
 
@@ -144,3 +144,8 @@ mayor_salario = max(empleados, key=lambda a : a["salario"])
 menor_salario = sorted(empleados, key=lambda b : b["salario"],reverse=True)
 print(mayor_salario)
 print(menor_salario)
+
+##excepcion
+print(operaciones_2.procesar_pago_cuotas("1200.0", "12"))
+print(operaciones_2.procesar_pago_cuotas("500.0", "0"))
+print(operaciones_2.procesar_pago_cuotas("mil", "6"))
