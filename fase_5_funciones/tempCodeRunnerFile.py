@@ -1,1 +1,5 @@
-print(operaciones_2.obtener_email_usuario(base_datos_usuarios, "2"))
+print("***********************************************************")
+compra = [
+    {"nombre": "Silla Gamer", "precio": 50.0, "cantidad":1},
+    {"nombre": "Mousepad", "precio": 10.0, "cantidad":2},
+]
