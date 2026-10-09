@@ -136,3 +136,20 @@ def procesar_transaccion_bancaria(transcaccion: tuple) ->dict | str:
         return transa_procesa
     except (AttributeError, TypeError):
         return "Error de atributo o tipo"
+
+def procesar_producto_inventario(producto: tuple) -> dict | str:
+    try:
+        sku, precio_base, categoria, en_oferta = producto
+        if en_oferta == True:
+            descuento = precio_base * 0.15
+        else:
+            descuento = 0.0
+        proc_invn = {
+            "sku": sku.upper(),
+            "categoría": categoria.lower(),
+            "precio_final": round(precio_base - descuento, 2)
+        }
+        return proc_invn
+    except (ArithmeticError, TypeError):
+        return "Error de atributo o tipo"
+
