@@ -108,3 +108,4 @@ def verificar_stock_producto(inventario: list, sku_buscado: int) -> bool:
 print(verificar_stock_producto(inventario_db, 1001)) # Debe retornar: True (Existe y hay stock) 
 print(verificar_stock_producto(inventario_db, 1005)) # Debe retornar: False (Existe pero stock es 0) 
 print(verificar_stock_producto(inventario_db, 9999)) # Debe retornar: False (No existe en el sistema)
+
